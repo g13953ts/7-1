@@ -12,17 +12,16 @@
         function callback(request){
             var json = eval(request.responseText);
             var res = '';
-            if (json.length == 1){
-                res += '<tr><td>' + json[0].id +'</td></tr>';
-                res += '<tr><td>' + json[0].name +'</td></tr>';
+            <!--きっとここ-->
+           if (json.length == 1){
                 res += '<tr><td>' + json[0].clothes +'</td></tr>';
             } else {
                 for (var i = 0;i < json.length;i++){
                     res += '<tr><td><a href="javascript:return false;" onclick="getData(' + json[i].id +');">' + json[i].id + '</a></td>';
-                    res += '<td><a href="' + json[i].name + '">' + json[i].clothes + '</a></td>';
+                    res += '<td><a href="' + json[0].clothes + '">' + json[0].clothes + '</a></td></tr>';
                 }
             }
-            var obj = document.getElementById("datatable");
+            var obj = document.getElementById("datatable");                                                                                                                                                                                                                                
             obj.innerHTML = res;
         }
         //-->
@@ -36,14 +35,11 @@
         <td>wait..</td>
         </tr>
         </table>
-<!--
-            <c:forEach var="order" items="${orderList}" begin="0" end="0"> 
-                <p><c:out value="${order.userName}" />:
-                    <c:out value="${order.clothes}" />
-                </c:forEach>--> <br />
-                <h3>注文することができました</h3>
+<br />
+                <h3>注文できました</h3><br />
             <ul>
                 <li><div class="btn2"><a href="../main">戻る</a></div></li>
+                <li><div class="btn2"><a href="../logoutServlet">ログアウト</a></div></li>
             </ul>
         </div>
         <div id="footer"></div>

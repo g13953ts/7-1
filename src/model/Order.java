@@ -16,42 +16,37 @@ import javax.jdo.annotations.PrimaryKey;
  */
 @PersistenceCapable(identityType = IdentityType.APPLICATION)
 public class Order {
-	@Persistent
-    private String userName;
-	@Persistent
-    private String clothes;
 	
 	@PrimaryKey
     @Persistent(valueStrategy = IdGeneratorStrategy.IDENTITY)
     private Long id;
+	
+	@Persistent
+    private String clothes;
 
-    public Order() {
-    }
 
-    public Order(Long id, String userName, String clothes) {
-        this.userName = userName;
-        this.clothes = clothes;
-        this.id = id;
-    }
-
-    public Order(String userName, String clothes) {
-        this.userName = userName;
-        this.clothes = clothes;
-    }
 
     public Order(String clothes) {
-    	this.clothes = clothes;
-    }
-    
-    public String getUserName() {
-        return userName;
+    	super();
+        this.clothes = clothes;
     }
 
-    public String getClothes() {
-        return clothes;
-    }
+
 
     public Long getId() {
         return id;
     }
+    public void setId(Long id){
+    	this.id=id;
+    }
+    
+
+    public String getClothes() {
+        return clothes;
+    }
+    public void setClothes(String clothes){
+    	this.clothes=clothes;
+    }
+
+    
 }

@@ -5,6 +5,7 @@ import java.net.URL;
 import java.util.*;
  
 import javax.jdo.*;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.*;
 import model.Order;
@@ -25,10 +26,7 @@ public class addOrder extends HttpServlet {
             HttpServletResponse resp)
             throws ServletException, IOException {
         req.setCharacterEncoding("UTF-8");
-        //int id = Integer.parseInt(req.getParameter("id"));
-        //String userName = req.getParameter("userName");
         String clothes = req.getParameter("clothes");
-        Date date = Calendar.getInstance().getTime();
         Order data = new Order(clothes);
         PersistenceManagerFactory factory = PMF.get();
         PersistenceManager manager = factory.getPersistenceManager();
@@ -37,6 +35,8 @@ public class addOrder extends HttpServlet {
         } finally {
             manager.close();
         }
-        //resp.sendRedirect("/index.html");
+        RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/jsp/main2.jsp");
+        dispatcher.forward(req, resp);
+        //resp.sendRedirect("/WEB-INF/jsp/main2.jsp");
     }
 }
