@@ -14,6 +14,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.google.appengine.api.users.UserServiceFactory;
+
 import appli.PMF;
 import javax.servlet.http.*;
 import model.Order;
@@ -69,13 +71,22 @@ public class Main extends HttpServlet {
 
     	
     	
-    	//String query = "select from " + Order.class.getName();
+    	String query = "select from " + Order.class.getName();
     	   	
        // List<Order> orderList = getOrder.execute();
         
 
+        /*HttpSession session = req.getSession();
+        String userId = (String) session.getAttribute("userId");*/
+        com.google.appengine.api.users.UserService service = UserServiceFactory.getUserService();
         HttpSession session = req.getSession();
-        String userId = (String) session.getAttribute("userId");
+        
+        if (service.isUserLoggedIn()){
+            //session.setAttribute("user", service.getCurrentUser());
+        } else {
+        	//User user = new User();
+        	//session.setAttribute("user",user);
+        }
         
             RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/jsp/main.jsp");
             dispatcher.forward(req, resp);
@@ -110,8 +121,8 @@ public class Main extends HttpServlet {
         reqDispatcher dispatcher = req.getreqDispatcher("/WEB-INF/jsp/main2.jsp");
         dispatcher.forward(req, resp);*/
     	
- 
-     List<Order> list = null;
+ //
+     /*List<Order> list = null;
      if (param1 == null || param1 ==""){
          String query = "select from " + Order.class.getName();
          try {
@@ -140,7 +151,7 @@ public class Main extends HttpServlet {
     String userId = (String) session.getAttribute("userId");
     
         RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/jsp/main2.jsp");
-        dispatcher.forward(req, resp);
+        dispatcher.forward(req, resp);*/
         
      /*   request.setCharacterEncoding("UTF-8");
         String clothes = request.getParameter("clothes[]");
@@ -181,5 +192,7 @@ public class Main extends HttpServlet {
     public String getServletInfo() {
         return "Short description";
     }// </editor-fold>*/
+        RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/jsp/main2.jsp");
+        dispatcher.forward(req, resp);
     }
 }

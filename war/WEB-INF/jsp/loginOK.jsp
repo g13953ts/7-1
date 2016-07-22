@@ -16,10 +16,9 @@
     <body>
         <div id="header"></div>
         <div id="main">
-            <p>ようこそ<c:out value="${userId}" />さん</p><br />
+            <p>ようこそ</p><br />
             <ul>
-                <li><div class="btn2"><a href="/db5453/WelcomServlet">トップへ</a></div></li>
-                <li><div class="btn2"><a href="/db5453/Main">ショップへ</a></div></li>
+                <li><div class="btn2"><a href="../main">ショップへ</a></div></li>
             </ul>
         </div>
         <div id="footer"></div>

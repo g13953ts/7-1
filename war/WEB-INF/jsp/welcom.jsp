@@ -18,7 +18,7 @@
             <h1>呉服屋さんへようこそ</h1>
             <ul class="menu">
                 <li><div class="btn"><a href="/db5453/LoginServlet">ログイン</a></div></li>
-                <li><div class="btn"><a href="/db5453/RegisterUser">ユーザー登録</a></div></li>
+                <li><div class="btn"><a href="/db5453/RegisterUser">登録</a></div></li>
             </ul></div>
         <div class="footer"></div>
     </body>
