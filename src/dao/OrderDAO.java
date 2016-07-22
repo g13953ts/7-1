@@ -43,7 +43,7 @@ public class OrderDAO extends HttpServlet {
         String res = "[";
         if (list != null){
             for(Order data:list){
-                res += "{id:" + data.getId() + ",name:'" + data.getUserName() + "',clothes:'" +data.getClothes()  + "'},";
+                res += "{id:" + data.getId() + "',clothes:'" +data.getClothes()  + "'},";
             }
         }
         res += "]";

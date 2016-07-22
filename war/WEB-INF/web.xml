@@ -40,6 +40,15 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
 		<url-pattern>/logoutServlet</url-pattern>
 	</servlet-mapping>
 	
+		<servlet>
+		<servlet-name>MygaeServlet</servlet-name>
+		<servlet-class>appli.MygaeServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>MygaeServlet</servlet-name>
+		<url-pattern>/mygaeServlet</url-pattern>
+	</servlet-mapping>
+	
 	<servlet>
 		<servlet-name>RegisterUser</servlet-name>
 		<servlet-class>appli.RegisterUser</servlet-class>
